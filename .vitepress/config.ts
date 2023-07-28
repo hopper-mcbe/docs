@@ -6,6 +6,9 @@ export default defineConfig({
   title: "Hopper MCBE",
   description: "Hopper MCBE Documentation",
   themeConfig: {
+    editLink: {
+      pattern: "https://github.com/hopper-mcbe/docs/edit/main/:path",
+    },
     lastUpdated: {},
     outline: "deep",
     logo: "/logo.png",
