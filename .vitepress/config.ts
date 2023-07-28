@@ -1,0 +1,58 @@
+import { defineConfig } from "vitepress";
+
+export default defineConfig({
+  base: "/docs/",
+  srcExclude: ["README.md"],
+  title: "Hopper MCBE",
+  description: "Hopper MCBE Documentation",
+  themeConfig: {
+    lastUpdated: {},
+    outline: "deep",
+    logo: "/logo.png",
+
+    search: {
+      provider: "local",
+    },
+
+    nav: [
+      { text: "Home", link: "/" },
+      { text: "Introduction", link: "/getting-started/intro" },
+      {
+        text: "v0.0.2",
+        link: "https://github.com/hopper-mcbe/hopper-mcbe/releases/latest",
+      },
+    ],
+
+    sidebar: [
+      {
+        text: "Getting Started",
+        items: [
+          { text: "Introduction", link: "/getting-started/intro" },
+          { text: "Quick Start", link: "/getting-started/start" },
+        ],
+      },
+      {
+        text: "Essentials",
+        items: [
+          { text: "Components", link: "/essentials/components" },
+          { text: "createAddon", link: "/essentials/create-addon" },
+        ],
+      },
+      {
+        text: "Conventions",
+        items: [
+          {
+            text: "Naming Conventions",
+            link: "/conventions/naming-conventions",
+          },
+          {
+            text: "Source Organization",
+            link: "/conventions/source-organization",
+          },
+        ],
+      },
+    ],
+
+    socialLinks: [{ icon: "github", link: "https://github.com/hopper-mcbe" }],
+  },
+});
