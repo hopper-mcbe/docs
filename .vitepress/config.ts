@@ -1,6 +1,7 @@
 import { defineConfig } from "vitepress";
 
 export default defineConfig({
+  head: [["link", { rel: "shortcut icon", href: "/docs/favicon.png" }]],
   base: "/docs/",
   srcExclude: ["README.md"],
   title: "Hopper MCBE",
@@ -11,7 +12,7 @@ export default defineConfig({
     },
     lastUpdated: {},
     outline: "deep",
-    logo: "/logo.png",
+    logo: "/favicon.png",
 
     search: {
       provider: "local",

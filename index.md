@@ -6,9 +6,6 @@ hero:
   name: Hopper MCBE
   text: Add-on compiler
   tagline: Build organized & maintainable add-ons faster with easy to learn APIs.
-  # image:
-  #   src: /logo.png
-  #   alt: Hopper MCBE Logo
   actions:
     - theme: brand
       text: Get Started
