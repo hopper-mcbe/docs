@@ -16,7 +16,9 @@ hopper init
 
 This command will ask you some questions and create your project in a directory with the name you specified in the first prompt.
 
-## Useful Commands
+## Project Commands
+
+All of the following commands need to be run in a project created with `hopper init`.
 
 ### Development
 
