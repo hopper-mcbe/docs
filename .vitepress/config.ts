@@ -22,7 +22,7 @@ export default defineConfig({
       { text: "Home", link: "/" },
       { text: "Introduction", link: "/getting-started/intro" },
       {
-        text: "v0.1.0",
+        text: "v0.1.1",
         link: "https://github.com/hopper-mcbe/hopper-mcbe/releases/latest",
       },
     ],
