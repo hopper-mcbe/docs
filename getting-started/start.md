@@ -42,7 +42,7 @@ npm run clean
 
 ### Production
 
-Run the following command to build in production mode. This will minify the output script bundle and will output all files into the `build` directory in the project.
+Run the following command to build in production mode. This will optimize the project (see [Optimizations](/essentials/optimizations)) and will output all files into the `build` directory in the project.
 
 ```shell
 npm run build-prod

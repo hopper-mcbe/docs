@@ -22,7 +22,7 @@ export default defineConfig({
       { text: "Home", link: "/" },
       { text: "Introduction", link: "/getting-started/intro" },
       {
-        text: "v0.0.4",
+        text: "v0.1.0",
         link: "https://github.com/hopper-mcbe/hopper-mcbe/releases/latest",
       },
     ],
@@ -40,6 +40,7 @@ export default defineConfig({
         items: [
           { text: "Components", link: "/essentials/components" },
           { text: "createAddon", link: "/essentials/create-addon" },
+          { text: "Optimizations", link: "/essentials/optimizations" },
         ],
       },
       {
