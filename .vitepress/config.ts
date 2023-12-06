@@ -22,7 +22,7 @@ export default defineConfig({
       { text: "Home", link: "/" },
       { text: "Introduction", link: "/getting-started/intro" },
       {
-        text: "v0.1.1",
+        text: "v0.2.0",
         link: "https://github.com/hopper-mcbe/hopper-mcbe/releases/latest",
       },
     ],
@@ -38,8 +38,8 @@ export default defineConfig({
       {
         text: "Essentials",
         items: [
-          { text: "Components", link: "/essentials/components" },
-          { text: "createAddon", link: "/essentials/create-addon" },
+          { text: "`_` Global Object", link: "/essentials/underscore_object" },
+          { text: "`_` Label", link: "/essentials/underscore_label" },
           { text: "Optimizations", link: "/essentials/optimizations" },
         ],
       },
@@ -53,6 +53,15 @@ export default defineConfig({
           {
             text: "Source Organization",
             link: "/conventions/source-organization",
+          },
+        ],
+      },
+      {
+        text: "Other",
+        items: [
+          {
+            text: "Caveats",
+            link: "/other/caveats",
           },
         ],
       },

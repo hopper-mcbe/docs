@@ -4,46 +4,60 @@
 
 Hopper is a Minecraft: Bedrock Edition add-on compiler designed to allow developers to create maintainable and organized add-ons quickly and without repetitive tasks.
 
-Hopper has one core concept; components. Here's an example:
+Hopper allows you to combine generator code and your Minecraft scripts in one file.
 
 ```ts
-export const UiItem = defineComponent(({ define }, id: string) => {
-  define.item({
-    format_version: "1.20.10",
+import { Player } from "@minecraft/server";
+
+interface Artifact {
+  onInteract(player: Player): void;
+}
+
+const ARTIFACTS: Record<string, Artifact> = {
+  water_breathing_artifact: {
+    onInteract(player) {
+      player.addEffect("water_breathing", 400);
+    },
+  },
+  invisibility_artifact: {
+    onInteract(player) {
+      player.addEffect("invisibility", 400);
+    },
+  },
+};
+
+for (const artifact of ARTIFACTS) {
+  // Use the `_` global object to access preprocessor functions.
+  _.define.item({
+    format_version: "1.20.40",
     "minecraft:item": {
       description: {
-        identifier: id,
+        identifier: `example:${artifact.id}`,
+        category: "items",
       },
       components: {
-        "minecraft:chargeable": {},
+        "minecraft:max_stack_size": 1,
+        "minecraft:icon": {
+          texture: `example_${artifact.id}`,
+        },
+        "tag:example:artifact": {},
       },
     },
   });
+}
 
-  define.script(({ server, serverUi }) => {
-    server.world.afterEvents.itemStartUse.subscribe((e) => {
-      if (e.itemStack.typeId === id && e.source instanceof server.Player) {
-        new serverUi.ActionFormData()
-          .title("Hello!")
-          .body(`Hello, ${e.source.name}`)
-          .button("Close")
-          .show(e.source);
-      }
-    });
-  });
+// Use the `$` global object to access `@minecraft` modules.
+$.server.world.afterEvents.itemUse.subscribe((e) => {
+  if (!e.itemStack.hasTag("example:artifact")) return;
+
+  const artifact = ARTIFACTS[e.itemStack.typeId.slice("example:".length)];
+
+  artifact.onInteract(e.source);
 });
 ```
 
-The above component creates an item and a script that will open an action form when a player uses the item.
+The file above creates an item for every artifact in `ARTIFACTS` and also subscribes to the world `itemUse` event and calls the appropriate artifact's `onInteract` method when they are interacted with. The preprocessor calls will be stripped from the build output but will run during build time. The output of this will be 2 items and a `bundle.js` file containing the `ARTIFACTS` object and the `itemUse` event subscription.
 
-It can be reused as many times as necessary like this:
+## TypeScript
 
-```ts
-import { UiItem } from "./UiItem";
-
-// The '$' prefix is a naming convention for components that
-// should not be implemented more than once.
-const $MyUiItem = defineComponent(({ implement }) => {
-  implement(UiItem("namespace:my_ui_item"));
-});
-```
+Hopper only supports [TypeScript](https://www.typescriptlang.org/), a strongly typed superset of JavaScript. Your code will automatically be compiled down to JavaScript at build time.
