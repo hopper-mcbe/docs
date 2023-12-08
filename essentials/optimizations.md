@@ -4,6 +4,8 @@
 
 Always use the `--optimize` flag when building for production. If you used `hopper init` to create your project, then the `build-prod` script will already use this flag.
 
+See [Quick Start](/getting-started/start.md).
+
 ## Label `for` Loops With `_`
 
 If you have a `for` loop that only contains code that would be stripped from the build output, the contents of the loop will be stripped but the `for` loop will not.
@@ -43,3 +45,5 @@ For example:
 // twice even though it does not have a body.
 for (let i = 0; i < 2; console.log("Hello, World!"), i++);
 ```
+
+See [`_` Label](underscore_label.md).

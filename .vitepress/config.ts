@@ -40,6 +40,8 @@ export default defineConfig({
         items: [
           { text: "`_` Global Object", link: "/essentials/underscore_object" },
           { text: "`_` Label", link: "/essentials/underscore_label" },
+          { text: "`$` Global Object", link: "/essentials/dollar_object" },
+          { text: "`$` Label", link: "/essentials/dollar_label" },
           { text: "Optimizations", link: "/essentials/optimizations" },
         ],
       },
@@ -47,21 +49,8 @@ export default defineConfig({
         text: "Conventions",
         items: [
           {
-            text: "Naming Conventions",
-            link: "/conventions/naming-conventions",
-          },
-          {
             text: "Source Organization",
             link: "/conventions/source-organization",
-          },
-        ],
-      },
-      {
-        text: "Other",
-        items: [
-          {
-            text: "Caveats",
-            link: "/other/caveats",
           },
         ],
       },

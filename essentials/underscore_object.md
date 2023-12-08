@@ -1,7 +1,5 @@
 # `_` Global Object
 
-## Overview
-
 The `_` global object contains all the preprocessor methods. All member expressions and call expressions using the `_` object will be stripped from the build output, but will be executed at compile time (just like the [`_` label](underscore_label.md)).
 
 For example:
@@ -30,6 +28,8 @@ $.server.world.afterEvents.itemUse.subscribe((e) => {
   // Do something.
 });
 ```
+
+See [`$` Global Object](dollar_object.md).
 
 ## Reference
 
