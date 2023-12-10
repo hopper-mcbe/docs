@@ -5,7 +5,7 @@ layout: home
 hero:
   name: Hopper MCBE
   text: Add-on compiler
-  tagline: Build organized & maintainable add-ons faster with easy to learn APIs.
+  tagline: Build organized & maintainable add-ons faster.
   actions:
     - theme: brand
       text: Get Started
@@ -13,9 +13,9 @@ hero:
 
 features:
   - title: Maintainablility
-    details: Build add-ons with great long-term maintainability by organizing code into components.
-  - title: Reusability
-    details: Reuse code extremely easily with Hopper's powerful component composition APIs.
-  - title: Automate
-    details: Automate repetetive tasks using the full power of TypeScript/JavaScript at compile-time entirely within a component or components.
+    details: Build maintainable add-ons by keeping all code for something in one place rather than scattered across multiple files in many different places.
+  - title: Develop Faster
+    details: Automate boring and tedious tasks using the full power of JavaScript at compile-time mixed in with your in-game script code.
+  - title: TypeScript
+    details: Hopper has TypeScript support by default, so you can get all of TypeScript's powerful features without the hassle.
 ---
