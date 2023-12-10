@@ -1,23 +1,49 @@
 # Optimizations
 
-## \_ Label
+## Remember to Use `--optimize` for Production
 
-::: info
-This will only work when `hopper build` or `hopper watch` is run with the `--optimize` flag
-:::
+Always use the `--optimize` flag when building for production. If you used `hopper init` to create your project, then the `build-prod` script will already use this flag.
 
-Use the `_` label to strip the labeled AST node from the optimized output bundle.
+See [Quick Start](/getting-started/start.md).
 
-```ts
-export const $Main = defineComponent(() => {
-  _: console.log(
-    "This will only run at compile-time and in non-optimized builds."
-  );
+## Label `for` Loops With `_`
 
-  console.log("This will always run.");
-});
+If you have a `for` loop that only contains code that would be stripped from the build output, the contents of the loop will be stripped but the `for` loop will not.
+
+For example:
+::: code-group
+
+```ts [input.ts]
+// This `for` loop will be in the output.
+for (let i = 0; i < 10; i++) {
+  _.define.entity({});
+}
+
+// This `for` loop will not be in the output.
+_: for (let x = 0; x < 5; x++) {
+  _.define.entity({});
+}
 ```
 
-::: tip
-All definitions should be labeled with `_` except `define.script` because all definition functions except `define.script` only report errors at runtime and do nothing (except return `false`) in optimized builds.
+```js [output.js]
+// NOTE: not actual output.
+
+// The first loop:
+for (let i = 0; i < 10; i++);
+
+// The second loop will not be in the output.
+```
+
 :::
+
+The contents of the `for` loop are not stripped by [terser](https://terser.org/) because `for` loops can contain any expression inside the parenthesis.
+
+For example:
+
+```ts
+// This `for` loop will log "Hello, World!" to the console
+// twice even though it does not have a body.
+for (let i = 0; i < 2; console.log("Hello, World!"), i++);
+```
+
+See [`_` Label](underscore_label.md).
