@@ -5,7 +5,7 @@
 Install [Node.js](https://nodejs.org/en) and npm (will be installed with Node.js unless you unselect it) and run the following command:
 
 ```shell
-npm install -g hopper-mcbe@latest
+npm install -g @hopper-mcbe/hopper-mcbe@latest
 ```
 
 ## Initialize a New Add-on
@@ -53,11 +53,11 @@ npm run build-prod
 To update your global install of Hopper, you can run the same command you use to install Hopper.
 
 ```shell
-npm install -g hopper-mcbe@latest
+npm install -g @hopper-mcbe/hopper-mcbe@latest
 ```
 
 All of your projects created using `hopper init` will have a local install of Hopper as well. To update that, run the following command in the project directory:
 
 ```shell
-npm install hopper-mcbe@latest
+npm install @hopper-mcbe/hopper-mcbe@latest
 ```
